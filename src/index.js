@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './App.css'; // Will be created in a subsequent step
+import './App.css'; // Global application styles
 import App from './App';
 // import reportWebVitals from './reportWebVitals'; // Optional: for performance measuring
 
