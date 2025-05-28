@@ -1,0 +1,268 @@
+:root {
+  --color-background: #1A1A2E;
+  --color-text-primary: #E0E0E0;
+  --color-accent1: #FF6B6B;
+  --color-accent2: #4ECDC4;
+  --color-neutral-secondary: #5A5A5A;
+  --font-primary: 'Raleway', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+section {
+  padding: 4rem 2rem;
+  min-height: auto; /* Default, can be overridden by specific sections */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hero Section Specifics */
+#hero {
+  min-height: 100vh;
+  justify-content: center;
+  padding-bottom: 8rem; /* Space for scroll indicator */
+  position: relative; /* For scroll indicator positioning */
+}
+
+/* Story Section Specifics */
+#story {
+  background-color: #202038; /* Slightly different shade for depth if desired, or keep same */
+}
+
+/* Services Section Specifics */
+#services {
+  padding-bottom: 6rem;
+}
+
+/* Why Hueneu Section Specifics */
+#why-hueneu {
+ background-color: #202038; /* Optional alternating background */
+}
+
+/* Contact Section Specifics */
+#contact {
+  padding-bottom: 6rem;
+}
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-neutral-secondary);
+  border-top: 1px solid var(--color-neutral-secondary);
+}
+
+footer a {
+  color: var(--color-accent2);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--color-accent1);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  margin-bottom: 1rem;
+  font-weight: 300; /* Lighter for Raleway elegance */
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 500; /* Bolder for logo/main title */
+  margin-bottom: 0.5rem;
+  /* Animation placeholder for logo reveal */
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+.hero-tagline {
+  font-size: 1.8rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 1s forwards;
+}
+
+.hero-subtext {
+  font-size: 1.2rem;
+  color: var(--color-text-primary);
+  opacity: 0;
+  animation: fadeIn 1s ease-out 1.5s forwards;
+  max-width: 500px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-text-primary);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent1);
+  margin: 0.5rem auto 0;
+}
+
+.story-content p, .why-hueneu-content p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.story-highlight {
+  font-size: 1.3rem;
+  color: var(--color-accent2);
+  font-weight: 500;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px dashed var(--color-accent2);
+  display: inline-block;
+  /* Animation placeholder for 'Who Knew?' pop-out */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.story-highlight.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Services List */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 2rem;
+}
+
+.service-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px; /* 2xl rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent; /* For hover effect */
+}
+
+.service-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: var(--color-accent2);
+}
+
+.service-item-icon {
+  font-size: 2.5rem; /* Placeholder for icon */
+  margin-bottom: 1rem;
+  color: var(--color-accent1);
+}
+
+.service-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.service-item p {
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+/* Scroll Down Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 50px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 2s forwards;
+  cursor: pointer;
+}
+
+.scroll-indicator svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-indicator path {
+  stroke: var(--color-text-primary);
+  fill: transparent;
+  stroke-width: 2;
+  animation: scrollHint 2s infinite ease-out;
+}
+
+/* Basic Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollHint {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.5; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.5rem;
+  }
+
+  .hero-subtext {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
